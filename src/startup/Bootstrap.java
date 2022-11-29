@@ -24,6 +24,7 @@ public class Bootstrap {
 				MainFrame.instance.setVisible(true);
 				MainPanel.instance.workingPanel.show(SpendPanel.instance);
 				// 这是一个注释
+				// 这是第二个注释
 			}
 		});
 	}
