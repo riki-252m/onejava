@@ -1,5 +1,5 @@
 package util;
- 
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -8,36 +8,36 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JPanel;
- 
-public class CircleProgressBar extends JPanel {
- 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
-	private int minimumProgress;
- 
+public class CircleProgressBar extends JPanel {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
+    private int minimumProgress;
+
     private int maximumProgress;
- 
+
     private int progress;
- 
+
     private String progressText;
- 
+
     private Color backgroundColor;
- 
+
     private Color foregroundColor;
- 
+
     public CircleProgressBar() {
         minimumProgress = 0;
         maximumProgress = 100;
         progressText = "0%";
     }
- 
+
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D graphics2d = (Graphics2D) g;
-        // ¿ªÆô¿¹¾â³Ý
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         graphics2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         int x = 0;
         int y = 0;
@@ -63,45 +63,45 @@ public class CircleProgressBar extends JPanel {
         graphics2d.setColor(foregroundColor);
         graphics2d.drawArc(x, y, width, height, 90,
                 -(int) (360 * ((progress * 1.0) / (maximumProgress - minimumProgress))));
-        graphics2d.setFont(new Font("ºÚÌå", Font.BOLD, fontSize));
+        graphics2d.setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.BOLD, fontSize));
         FontMetrics fontMetrics = graphics2d.getFontMetrics();
         int digitalWidth = fontMetrics.stringWidth(progressText);
         int digitalAscent = fontMetrics.getAscent();
         graphics2d.setColor(foregroundColor);
         graphics2d.drawString(progressText, getWidth() / 2 - digitalWidth / 2, getHeight() / 2 + digitalAscent / 2);
     }
- 
+
     public int getProgress() {
         return progress;
     }
- 
+
     public void setProgress(int progress) {
         if (progress >= minimumProgress && progress <= maximumProgress)
             this.progress = progress;
         if (progress > maximumProgress)
             this.progress = maximumProgress;
- 
+
         this.progressText = String.valueOf(progress + "%");
- 
+
         this.repaint();
     }
- 
+
     public Color getBackgroundColor() {
         return backgroundColor;
     }
- 
+
     public void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
         this.repaint();
     }
- 
+
     public Color getForegroundColor() {
         return foregroundColor;
     }
- 
+
     public void setForegroundColor(Color foregroundColor) {
         this.foregroundColor = foregroundColor;
         this.repaint();
     }
- 
+
 }
