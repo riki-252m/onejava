@@ -1,6 +1,7 @@
 package startup;
+
 /**
- * Æô¶¯³ÌÐòµÄÈë¿Ú
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 
 import java.lang.reflect.InvocationTargetException;
@@ -15,13 +16,14 @@ import util.GUIUtil;
 public class Bootstrap {
 	public static void main(String[] args) throws InvocationTargetException, InterruptedException {
 		GUIUtil.useLNF();
-		
+
 		SwingUtilities.invokeAndWait(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				MainFrame.instance.setVisible(true);
 				MainPanel.instance.workingPanel.show(SpendPanel.instance);
+				// è¿™æ˜¯ä¸€ä¸ªæ³¨é‡Š
 			}
 		});
 	}
